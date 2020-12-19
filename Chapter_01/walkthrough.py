@@ -7,7 +7,7 @@ import logging
 from math import sqrt, log
 import argparse
 from pathlib import Path
-#sys.path.insert(0, osp.abspath(__file__))
+sys.path.insert(0, osp.abspath(__file__))
 
 
 import coloredlogs

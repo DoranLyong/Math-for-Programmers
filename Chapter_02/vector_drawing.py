@@ -136,4 +136,5 @@ def draw(*objects, origin=True, axes=True, grid=(1,1), nice_aspect_ratio=True,
     if save_as:
         plt.savefig(save_as)
 
-    plt.show()
+    elif not save_as: 
+        plt.show()
