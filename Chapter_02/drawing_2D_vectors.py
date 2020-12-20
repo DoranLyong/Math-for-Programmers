@@ -116,11 +116,43 @@ def vector_component_and_length():
     plt.close()
 
 
-def add(*vectors):
+def addVec(*vectors):
     return (sum([v[0] for v in vectors]), sum([v[1] for v in vectors]))
+
+def translate(translation, vectors):
+    return [add(translation, v) for v in vectors]
+
+
+
+def hundred_dinos():
+    logging.info('2.4 hundred_dinos')
+    from vector_drawing import draw, Points, Segment, Polygon
+
+    blue = 'C0'
+
+    dino_vectors = [(6,4), (3,1), (1,2), (-1,5), (-2,5), (-3,4), (-4,4),
+                    (-5,3), (-5,2), (-2,2), (-5,1), (-4,0), (-2,1), (-1,0), (0,-3),
+                    (-1,-4), (1,-4), (2,-3), (1,-2), (3,-1), (5,1) 
+                    ]    
+
+    translations = [(12*x,10*y) 
+                    for x in range(-5,5) 
+                    for y in range(-5,5)]
+    dinos = [Polygon(*translate(t, dino_vectors),color=blue)
+                for t in translations]
+    draw(*dinos, grid=None, axes=None, origin=None, 
+    
+            save_as="outputs/08_hundred_dinos"
+        )
+
+    plt.close()
+
+
 
 if __name__ == "__main__":
 
     picturing_2d_vectors()
     plane_vector_arithmetic()
     vector_component_and_length()
+
+    hundred_dinos()
